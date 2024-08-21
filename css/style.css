@@ -1,0 +1,181 @@
+/* common css */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+:root{
+    --bgclr: white;
+    --sidebar: rgb(240, 210, 215);
+    --txtclr: black;
+
+}
+.darkmode{
+    --bgclr: rgb(12, 12, 12);
+    --sidebar: rgb(50, 49, 49);
+    --txtclr: white;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    font-family: "arial";
+    background-color: var(--bgclr);
+}
+.container{
+    width: 1170px;
+    margin: auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.align-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.justify-between{
+    justify-content: space-between;
+}
+/* common css ends */
+/* nav  sidebar starts */
+nav{
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+}
+nav button{
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #111;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.sidebar{
+    position: fixed;
+    inset: 0;
+    background-color: #0000009a;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.sidebar.active{
+    opacity: 1;
+    visibility: visible;
+
+}
+.sidebarCnt{
+    background-color: var(--sidebar);
+    height: 100vh;
+    overflow: auto;
+    width: 80%;
+    padding: 30px;
+    max-width: 350px;
+    position: relative;
+    transform: translateX(-100%);
+    transition: 0.5s ;
+}
+.sidebar.active .sidebarCnt{
+    transform: translateX(0%);
+}
+.sidebarCnt img{
+    width: 100%;
+    max-width: 200px;
+}
+
+.sidebarCnt ul{
+    margin-top: 20px;
+}
+.sidebarCnt ul li a{
+text-decoration: none;
+color: var(--txtclr);
+margin-bottom: 15px;
+display: block;
+}
+.sidebarCnt span{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(233, 164, 175);;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+/* nav sidebar ends */
+/* dark mode */
+.darkModeBtn{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.darkModeBtn span{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background-color: #111;
+    line-height: 40px;
+    transition: 0.3s ease-in;
+}
+.darkModeBtn span.moon{
+    top: 0;
+    right: -100%;
+}
+
+body.darkmode .darkModeBtn span.sun{
+    left: -100%;
+}
+body.darkmode .darkModeBtn span.moon{
+     right: 0%;
+}
+
+
+/* dark mode ends */
+/* mouse cursor */
+.cursor{
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--textColor);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    pointer-events:none;
+    z-index: 9999999;
+}
+.cursorSm{
+    width: 10px;
+    height: 10px;
+    background-color: var(--textColor);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    transition: 0.05s;
+    pointer-events:none;
+    z-index: 9999999;
+}
+/* mouse cursor ends */
